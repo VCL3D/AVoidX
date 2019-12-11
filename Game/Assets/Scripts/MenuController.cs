@@ -10,8 +10,8 @@ public class MenuController : MonoBehaviour
     string time = "120";
     string speed = "25";
     string frequency = "1";
-    string cameraThres = "90";
-    string sensitivity = "1";
+    string cameraThres = "60";
+    string sensitivity = "10";
     string score = "0";
 
     // Start is called before the first frame update

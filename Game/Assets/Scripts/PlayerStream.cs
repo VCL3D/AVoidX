@@ -100,4 +100,25 @@ public class PlayerStream : MonoBehaviour
         transform.position = pos;
         transform.localScale = scal;
     }
+
+    /*public IEnumerator MeshRendReset()
+    {
+        float updateRate = 1.0f;
+        float dt = 0.0f;
+        while (true)
+        {
+            dt += Time.deltaTime;
+            if (dt > 1.0 / updateRate)
+            {
+                this.gameObject.GetComponent<MeshRenderer>().enabled = !this.gameObject.GetComponent<MeshRenderer>().enabled;
+                dt -= (float)(1.0 / updateRate);
+            }
+        }
+        
+        Debug.Log("HIT1");
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("HIT2");
+        this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        yield break;
+    }*/
 }

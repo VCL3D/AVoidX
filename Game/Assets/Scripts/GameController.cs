@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     public float worldspeed = 30;
     public float generatespeed = 30;
     public float CameraThres = 60;
-    public int hitsAllowedPerWall = 5;
+    public int hitsAllowedPerWall = 10;
     public int RunSeconds = 120;
     public string playerName;
     bool debugBox = false;
@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
         }
         else 
         {
-            playerName = "guest";
+            playerName = "Guest";
         }
 
         GameObject.Find("Gamespeed").GetComponent<Gamespeed>().SetWorldSpeed(worldspeed);

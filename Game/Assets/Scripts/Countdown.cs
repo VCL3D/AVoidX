@@ -12,6 +12,7 @@ public class Countdown : MonoBehaviour
     int seconds;
     int counter = 0;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +54,16 @@ public class Countdown : MonoBehaviour
         else return "0"+ seconds.ToString();
     }
 
+    public int RemainingTime()
+    {
+        return remainingSeconds;
+    }
+
+    public int TotalTime()
+    {
+        return totalSeconds;
+    }
+
     private IEnumerator Timer()
     {
         while (remainingSeconds > 0)
@@ -62,6 +73,7 @@ public class Countdown : MonoBehaviour
             seconds = (int)remainingSeconds - 60 * minutes;
             yield return new WaitForSeconds(1f);
         }
+        GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>().LeaderboardCheck();
         if (GameObject.Find("MenuController"))
         {
             GameObject.Find("MenuController").GetComponent<MenuController>().SetScore(GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>().GetScore().ToString());

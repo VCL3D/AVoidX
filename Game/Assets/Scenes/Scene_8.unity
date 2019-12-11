@@ -845,14 +845,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292848320}
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1125143194}
   m_Father: {fileID: 0}
   m_RootOrder: 32
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!1001 &294872794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3198,8 +3198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldspeed: 25
   generatespeed: 1
-  CameraThres: 90
-  hitsAllowedPerWall: 1
+  CameraThres: 60
+  hitsAllowedPerWall: 10
   RunSeconds: 120
   playerName: 
 --- !u!4 &1040028904

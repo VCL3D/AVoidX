@@ -85,6 +85,7 @@ public class RandomWallGenerator : MonoBehaviour
             int number = rnd.Next(0, WallCounter-1);
             InitiateWall(new Vector3(0, 0, 200), WallList.ElementAt(number));
             yield return new WaitForSeconds(8/generatespeed);
+            generatespeed = GameObject.Find("Gamespeed").GetComponent<Gamespeed>().GetGenerateSpeed();
         }
     }
 

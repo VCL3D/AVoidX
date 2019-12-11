@@ -27,9 +27,11 @@ public class SphereRotation : MonoBehaviour
 
     public IEnumerator CameraFullMove()
     {
-        StartCoroutine(MoveOverSeconds(this.gameObject, (float) cameraThres/(2*worldspeed), true));
-        yield return new WaitForSeconds((float) GameObject.Find("Gamespeed").GetComponent<Gamespeed>().GetCameraThres() / GameObject.Find("Gamespeed").GetComponent<Gamespeed>().GetWorldSpeed());
-        StartCoroutine(MoveOverSeconds(this.gameObject, (float)GameObject.Find("Gamespeed").GetComponent<Gamespeed>().GetCameraThres() / (5 * GameObject.Find("Gamespeed").GetComponent<Gamespeed>().GetWorldSpeed()), false));
+        //StartCoroutine(MoveOverSeconds(this.gameObject, (float) cameraThres / (2 * worldspeed), true));
+        StartCoroutine(MoveOverSeconds(this.gameObject, 2f, true));
+        yield return new WaitForSeconds((float) cameraThres / worldspeed);
+        StartCoroutine(MoveOverSeconds(this.gameObject, 1f, false));
+        //StartCoroutine(MoveOverSeconds(this.gameObject, (float) cameraThres / (5 * worldspeed), false));
         //this.gameObject.transform.position = new Vector3(0f, 8f, 0f);
         //this.gameObject.transform.eulerAngles = new Vector3(20f, 0f, 0f);
     }
@@ -55,13 +57,22 @@ public class SphereRotation : MonoBehaviour
         {
             while (elapsedTime < seconds)
             {
-                objectToMove.transform.eulerAngles = Vector3.Lerp(startingRot, new Vector3(20f, 0f, 0f), (elapsedTime / seconds));
+                objectToMove.transform.eulerAngles = Vector3.Lerp(startingRot, new Vector3(15f, 0f, 0f), (elapsedTime / seconds));
                 //objectToMove.transform.position = Vector3.Lerp(startingPos, new Vector3(0f, 8f, 0f), (elapsedTime / seconds));
                 elapsedTime += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
-            objectToMove.transform.eulerAngles = new Vector3(20f, 0f, 0f);
+            objectToMove.transform.eulerAngles = new Vector3(15f, 0f, 0f);
             //objectToMove.transform.position = new Vector3(0f, 8f, 0f);
         }
+    }
+
+    public void SetSphereWorldSpeed(float val)
+    {
+        worldspeed = val;
+    }
+    public void SetSphereCameraThres(int val)
+    {
+        cameraThres = val;
     }
 }
