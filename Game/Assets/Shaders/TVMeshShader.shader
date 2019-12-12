@@ -58,6 +58,22 @@
 		uniform sampler2D Texture6;
 		uniform sampler2D Texture7;
 
+		uniform float3 hit_color = float3(0.8f, 0.2f, 0.2f);
+		uniform float  hit_time = 1.0f;
+		uniform float  hit_time_frequency = 1.0f;
+		uniform float  hit_blend_factor = 1.0f;
+
+		float3 compute_hit_color(float3 incolor)
+		{
+			float3 outcolor = incolor;
+			if (hit_blend_factor > 0.0f) {
+				float interpolation_factor = sin(2*3.14*hit_time * hit_time_frequency);
+				interpolation_factor = abs(interpolation_factor);			// make always positive in range [0,1]				
+				outcolor = lerp(incolor, hit_color, hit_blend_factor * interpolation_factor);
+			}
+			return outcolor;
+		}
+
 		float4x4 ArrayToMat4(float arr[128], int camId)
 		{
 			float4x4 result;
@@ -189,6 +205,8 @@
 				}
 			}
 
+			// hit effect
+			textureColor.rgb = compute_hit_color(textureColor.rgb);
 			return textureColor;
 		}
 

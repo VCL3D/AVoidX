@@ -39,15 +39,18 @@ public class DetectShadow60x40 : MonoBehaviour
             else if(hits < 2*hitsAllowed)
             {
                 //StartCoroutine(WallHit());
+                GameObject.Find("PlayerStream").GetComponent<CollisionEffect>().TriggerEffect();
                 GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>().ScoreDown(500);
             }
             else if (hits < 5 * hitsAllowed)
             {
+                GameObject.Find("PlayerStream").GetComponent<CollisionEffect>().TriggerEffect();
                 //StartCoroutine(WallHit());
                 GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>().ScoreDown((int)((float)500 * ((float)1 + (((float)hits - (float)(5 * hitsAllowed) )/ ((float)(5 * hitsAllowed) -(float)hitsAllowed)))));
             }
             else 
             {
+                GameObject.Find("PlayerStream").GetComponent<CollisionEffect>().TriggerEffect();
                 //StartCoroutine(WallHit());
                 GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>().ScoreDown(1000);
             }
