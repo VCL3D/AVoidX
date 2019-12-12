@@ -1,1 +1,1 @@
-# AugmentedVR_Game v1.0
+# AVoidX: An Augmented Virtuality Game
