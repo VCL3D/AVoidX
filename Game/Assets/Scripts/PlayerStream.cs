@@ -10,6 +10,7 @@ public class PlayerStream : MonoBehaviour
     GameObject Xaxis;
     float updateRate = 4.0f;
     float dt = 0.0f;
+    bool hit = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -32,6 +33,7 @@ public class PlayerStream : MonoBehaviour
         dt += Time.deltaTime;
         if (dt > 1.0 / updateRate)
         {
+            if (hit == true) StartCoroutine(MeshRendReset());
             if (!this.gameObject.GetComponent<MeshCollider>().enabled) StartCoroutine(ResetMeshCollider());
             GetComponent<MeshCollider>().sharedMesh = GetComponent<MeshFilter>().sharedMesh;
             dt -= (float)(1.0 / updateRate);
@@ -101,24 +103,25 @@ public class PlayerStream : MonoBehaviour
         transform.localScale = scal;
     }
 
-    /*public IEnumerator MeshRendReset()
+    public void PlayerHit() 
     {
-        float updateRate = 1.0f;
-        float dt = 0.0f;
-        while (true)
-        {
-            dt += Time.deltaTime;
-            if (dt > 1.0 / updateRate)
-            {
-                this.gameObject.GetComponent<MeshRenderer>().enabled = !this.gameObject.GetComponent<MeshRenderer>().enabled;
-                dt -= (float)(1.0 / updateRate);
-            }
-        }
-        
-        Debug.Log("HIT1");
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("HIT2");
+        hit = true;
+    }
+
+    public IEnumerator MeshRendReset()
+    {
+        hit = false;
+        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.3f);
+        this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        yield return new WaitForSeconds(0.3f);
+        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.3f);
+        this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        yield return new WaitForSeconds(0.3f);
+        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.3f);
         this.gameObject.GetComponent<MeshRenderer>().enabled = true;
         yield break;
-    }*/
+    }
 }
