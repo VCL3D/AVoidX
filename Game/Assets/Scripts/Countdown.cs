@@ -37,7 +37,7 @@ public class Countdown : MonoBehaviour
         totalSeconds = val;
     }
 
-    public void WallCollision()
+    public void StartCountdown()
     {
         GameStarts = true;
         counter++;

@@ -154,9 +154,15 @@ public class ImageScale : MonoBehaviour
                           c1.a + (c2.a - c1.a) * value);
     }
 
-    public Texture2D ImScale(Texture2D tex)
+    public Texture2D WallScale(Texture2D tex)
     {
         Bilinear(tex, 40, 50);
+        return tex;
+    }
+
+    public Texture2D CoinsScale(Texture2D tex)
+    {
+        Point(tex, 6, 6);
         return tex;
     }
 }

@@ -6,10 +6,12 @@ public class DetectCameraMove : MonoBehaviour
 {
     bool check = false;
     float CameraThres;
+    GameObject Sphere;
     // Start is called before the first frame update
     void Awake()
     {
-        CameraThres = GameObject.Find("Gamespeed").GetComponent<Gamespeed>().GetCameraThres(); 
+        CameraThres = GameObject.Find("Gamespeed").GetComponent<Gamespeed>().GetCameraThres();
+        Sphere = GameObject.Find("Sphere");
     }
 
     // Update is called once per frame
@@ -18,7 +20,7 @@ public class DetectCameraMove : MonoBehaviour
         if (transform.position.z < CameraThres && transform.position.z>0 && !check)
         {
             check = true;
-            StartCoroutine(GameObject.Find("Sphere").GetComponent<SphereRotation>().CameraFullMove());
+            StartCoroutine(Sphere.GetComponent<SphereRotation>().CameraFullMove());
         }
     }
 }
