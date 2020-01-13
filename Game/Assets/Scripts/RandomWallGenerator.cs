@@ -118,19 +118,39 @@ public class RandomWallGenerator : MonoBehaviour
     {
         while (true)
         {
-            int number = rnd.Next(0, 3);
+            float waitinstance = 0;
+            int number = rnd.Next(0, 10);
             Debug.Log(number);
-            if (number != 0)
-            {
-                number = rnd.Next(0, WallCounter - 1);
-                InitiateWall(new Vector3(0, 0, 200), WallList.ElementAt(number));
-            }
-            else
+            if (number == 0)
             {
                 number = rnd.Next(0, CoinCounter - 1);
                 InitiateCoin(new Vector3(0, 0, 200), CoinList.ElementAt(number));
+                waitinstance = 8f;
             }
-            yield return new WaitForSeconds(8/generatespeed);
+            else if (number < 5)
+            {
+                number = rnd.Next(0, WallCounter - 1);
+                InitiateWall(new Vector3(0, 0, 200), WallList.ElementAt(number));
+                waitinstance = 8f;
+            }
+            else if (number < 8)
+            {
+                number = rnd.Next(0, CoinCounter - 1);
+                InitiateCoin(new Vector3(0, 0, 200), CoinList.ElementAt(number));
+                number = rnd.Next(0, WallCounter - 1);
+                InitiateWall(new Vector3(0, 0, 230), WallList.ElementAt(number));
+                waitinstance = 9.5f;
+            }
+            else
+            {
+                number = rnd.Next(0, WallCounter - 1);
+                InitiateWall(new Vector3(0, 0, 200), WallList.ElementAt(number));
+                number = rnd.Next(0, CoinCounter - 1);
+                InitiateCoin(new Vector3(0, 0, 230), CoinList.ElementAt(number));
+                waitinstance = 9.5f;
+            }
+
+            yield return new WaitForSeconds(waitinstance/generatespeed);
             generatespeed = Gamespeed.GetComponent<Gamespeed>().GetGenerateSpeed();
         }
     }
