@@ -11,6 +11,9 @@ public class DetectCollision : MonoBehaviour
     GameObject ScoreCounter;
     GameObject PlayerStream;
     GameObject GameController;
+    GameObject ParticlePath;
+    int[,] CollisionArray;
+    GameObject iTweenPathCreator;
 
     void Start()
     {
@@ -18,6 +21,8 @@ public class DetectCollision : MonoBehaviour
         ScoreCounter = GameObject.Find("ScoreCounter");
         PlayerStream = GameObject.Find("PlayerStream");
         GameController = GameObject.Find("GameController");
+        iTweenPathCreator = GameObject.Find("iTweenPathCreator");
+        CollisionArray = new int[40, 50];
     }
 
     void Update()
@@ -30,9 +35,16 @@ public class DetectCollision : MonoBehaviour
                 for (int j = 0; j < 50; j++)
                 {
                     if (GetComponent<WallMask>().GetMask(i, j) == 1)
-                        ShadowCheck(new Vector3((float)(-4.8f + 0.24 * i), (float)(0.18f + 0.24 * j), transform.position.z - 0.5f));
+                        ShadowCheck(i,j, new Vector3((float)(-4.8f + 0.24 * i), (float)(0.18f + 0.24 * j), transform.position.z - 0.5f));
                 }
             }
+            if (hits != 0)
+            {
+                iTweenPathCreator.GetComponent<iTweenPath>().SetPath(CollisionArray);
+                GameObject ParticleEffect = Instantiate(Resources.Load("Buff"), iTweenPathCreator.GetComponent<iTweenPath>().GetFirstNode(), Quaternion.identity) as GameObject;
+                //ParticleEffect.AddComponent<FollowPath>();
+            }
+
             if (hits == 0)
             {
                 ScoreCounter.GetComponent<ScoreCounter>().ScoreUp(1000);
@@ -62,14 +74,15 @@ public class DetectCollision : MonoBehaviour
         }
     }
 
-    private void ShadowCheck(Vector3 pos)
+    private void ShadowCheck(int i, int j, Vector3 pos)
     {
-        if (Physics.Raycast(new Vector3(pos.x, pos.y, 5), Vector3.back, out hit, 20))
+        if (Physics.Raycast(new Vector3(pos.x, pos.y, 10), Vector3.back, out hit, 20))
         {
             string str = hit.collider.tag;
             if (str == "Player")
             {
                 hits += 1;
+                CollisionArray[i, j] = 1;
                 if (GameController.GetComponent<GameController>().GetDebugBox())
                 {
                     GameObject go = Instantiate(Resources.Load("debugBox"), hit.point, Quaternion.identity) as GameObject;

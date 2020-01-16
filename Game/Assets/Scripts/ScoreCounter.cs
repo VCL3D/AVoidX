@@ -29,10 +29,10 @@ public class ScoreCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       /* for (int i = 1; i < 6; i++)
+        /*for (int i = 1; i < 6; i++)
         {
-            PlayerPrefs.SetString("NameLeaderboard" + i.ToString(), "<Empty>");
-            PlayerPrefs.SetInt("ScoreLeaderboard" + i.ToString(), 0);
+            PlayerPrefs.SetString("NameLeaderboard" + i.ToString(), "");
+            PlayerPrefs.SetInt("ScoreLeaderboard" + i.ToString(), "");
         }*/
 
 

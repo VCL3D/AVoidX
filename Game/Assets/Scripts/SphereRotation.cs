@@ -6,6 +6,7 @@ public class SphereRotation : MonoBehaviour
 {
     float cameraThres;
     float worldspeed;
+    bool CameraMove = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,13 +18,17 @@ public class SphereRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (CameraMove)
+        {
+            CameraMove = false;
+            StartCoroutine(CameraFullMove());
+        }
     }
 
-    public void CameraMove()
+    /*public void CameraMove()
     {
         StartCoroutine(CameraFullMove());
-    }
+    }*/
 
     public IEnumerator CameraFullMove()
     {
@@ -65,6 +70,11 @@ public class SphereRotation : MonoBehaviour
             objectToMove.transform.eulerAngles = new Vector3(15f, 0f, 0f);
             //objectToMove.transform.position = new Vector3(0f, 8f, 0f);
         }
+    }
+
+    public void SetCameraMove(bool val)
+    {
+        CameraMove = val;
     }
 
     public void SetSphereWorldSpeed(float val)

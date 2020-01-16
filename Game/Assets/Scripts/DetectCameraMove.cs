@@ -20,7 +20,7 @@ public class DetectCameraMove : MonoBehaviour
         if (transform.position.z < CameraThres && transform.position.z>0 && !check)
         {
             check = true;
-            StartCoroutine(Sphere.GetComponent<SphereRotation>().CameraFullMove());
+            Sphere.GetComponent<SphereRotation>().SetCameraMove(true);
         }
     }
 }

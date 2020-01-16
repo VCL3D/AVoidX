@@ -60,7 +60,7 @@ public class MeshConstructor : MonoBehaviour
 
         lock (e)
         {
-            if (e.Value != null)
+            if (e.Value != null && received_new_frame == false)
             {
                 //// Storing the received buffer to a .bin file
                 //File.WriteAllBytes(@"C:\VCL_User_Prod\RealSenzBinsCorto\RealSenzBin_" + ind + ".bin", e.Value);
