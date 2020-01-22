@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public int RunSeconds = 120;
     public string playerName;
     bool debugBox = false;
+    bool GameStarted = false;
 
     void Awake()
     {
@@ -60,5 +61,15 @@ public class GameController : MonoBehaviour
     public bool GetDebugBox()
     {
         return debugBox;
+    }
+
+    public void changeGameStarted()
+    {
+        GameStarted = !GameStarted;
+    }
+
+    public bool GetGameStarted()
+    {
+        return GameStarted;
     }
 }

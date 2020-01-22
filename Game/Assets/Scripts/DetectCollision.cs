@@ -48,10 +48,14 @@ public class DetectCollision : MonoBehaviour
             if (hits == 0)
             {
                 ScoreCounter.GetComponent<ScoreCounter>().ScoreUp(1000);
+                GameObject ParticleEffect = Instantiate(Resources.Load("PurpleBuff"), PlayerStream.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity) as GameObject;
+                GameObject ScoreUp = Instantiate(Resources.Load("ScoreUp"), PlayerStream.transform.position + new Vector3(0f, 3.5f, 1f), Quaternion.identity) as GameObject;
             }
             else if(hits < hitsAllowed)
             {
                 ScoreCounter.GetComponent<ScoreCounter>().ScoreUp((int)((float)1000 * ((float)hitsAllowed - (float)hits) / (float)hitsAllowed));
+                GameObject ScoreDown = Instantiate(Resources.Load("ScoreDown"), PlayerStream.transform.position + new Vector3(0f, 3.5f, 1f), Quaternion.identity) as GameObject;
+                ScoreDown.GetComponent<TextMesh>().text = (-((int)((float)1000 * ((float)hitsAllowed - (float)hits) / (float)hitsAllowed))).ToString();
             }
 
             /*else if(hits < 2*hitsAllowed)
@@ -64,11 +68,14 @@ public class DetectCollision : MonoBehaviour
             {
                 PlayerStream.GetComponent<CollisionEffect>().TriggerEffect();
                 ScoreCounter.GetComponent<ScoreCounter>().ScoreDown((int)((float)1000 * (((float)hits - (float)(hitsAllowed))/ (float)(2 * hitsAllowed))));
+                GameObject ScoreDown = Instantiate(Resources.Load("ScoreDown"), PlayerStream.transform.position + new Vector3(0f, 3.5f, 1f), Quaternion.identity) as GameObject;
+                ScoreDown.GetComponent<TextMesh>().text = (-(int)((float)1000 * (((float)hits - (float)(hitsAllowed)) / (float)(2 * hitsAllowed)))).ToString();
             }
             else 
             {
                 PlayerStream.GetComponent<CollisionEffect>().TriggerEffect();
                 ScoreCounter.GetComponent<ScoreCounter>().ScoreDown(1000);
+                GameObject ScoreDown = Instantiate(Resources.Load("ScoreDown"), PlayerStream.transform.position + new Vector3(0f, 3.5f, 1f), Quaternion.identity) as GameObject;
             }
             check = true;
         }

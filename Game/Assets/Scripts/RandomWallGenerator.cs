@@ -18,6 +18,10 @@ public class RandomWallGenerator : MonoBehaviour
     int WallCounter;
     int CoinCounter;
 
+    GameObject Countdown;
+    GameObject PlayerStream;
+    bool GameStarted = false;
+
     void Start()
     {
         WallList = this.gameObject.GetComponent<ImageRead>().GetWalls();
@@ -25,14 +29,19 @@ public class RandomWallGenerator : MonoBehaviour
         WallCounter = WallList.Count;
         CoinCounter = CoinList.Count;
         Gamespeed = GameObject.Find("Gamespeed");
+        PlayerStream = GameObject.Find("PlayerStream");
         generatespeed = Gamespeed.GetComponent<Gamespeed>().GetGenerateSpeed();
         cameraThres = Gamespeed.GetComponent<Gamespeed>().GetCameraThres();
-        StartCoroutine("CreateWalls");
+        Countdown = GameObject.Find("Countdown");
     }
 
     void Update()
     {
-
+        if (PlayerStream.GetComponent<MeshCollider>().bounds.size.y != 0 && !GameStarted)
+        {
+            GameStarted = true;
+            StartCoroutine("InitiateGame");
+        }
     }
 
     private void InitiateWall(Vector3 pos, int[,] Mask)
@@ -114,28 +123,38 @@ public class RandomWallGenerator : MonoBehaviour
         }
     }
 
-    IEnumerator CreateWalls()
+    IEnumerator InitiateGame()
     {
+        yield return new WaitForSeconds(1.7f);
+        Countdown.GetComponent<TextMesh>().text = "3";
+        yield return new WaitForSeconds(1f);
+        Countdown.GetComponent<TextMesh>().text = "2";
+        yield return new WaitForSeconds(1f);
+        Countdown.GetComponent<TextMesh>().text = "1";
+        yield return new WaitForSeconds(1f);
+        Countdown.GetComponent<TextMesh>().text = "GO!";
+        yield return new WaitForSeconds(1f);
+        Destroy(Countdown);
         while (true)
         {
             float waitinstance = 0;
             int number = rnd.Next(0, 10);
-            Debug.Log(number);
+            //Debug.Log(number);
             if (number == 0)
             {
-                number = rnd.Next(0, CoinCounter - 1);
+                number = rnd.Next(0, CoinCounter);
                 InitiateCoin(new Vector3(0, 0, 200), CoinList.ElementAt(number));
                 waitinstance = 8f;
             }
             else if (number < 5)
             {
-                number = rnd.Next(0, WallCounter - 1);
+                number = rnd.Next(0, WallCounter);
                 InitiateWall(new Vector3(0, 0, 200), WallList.ElementAt(number));
                 waitinstance = 8f;
             }
             else if (number < 8)
             {
-                number = rnd.Next(0, CoinCounter - 1);
+                number = rnd.Next(0, CoinCounter);
                 InitiateCoin(new Vector3(0, 0, 200), CoinList.ElementAt(number));
                 number = rnd.Next(0, WallCounter - 1);
                 InitiateWall(new Vector3(0, 0, 230), WallList.ElementAt(number));
@@ -143,7 +162,7 @@ public class RandomWallGenerator : MonoBehaviour
             }
             else
             {
-                number = rnd.Next(0, WallCounter - 1);
+                number = rnd.Next(0, WallCounter);
                 InitiateWall(new Vector3(0, 0, 200), WallList.ElementAt(number));
                 number = rnd.Next(0, CoinCounter - 1);
                 InitiateCoin(new Vector3(0, 0, 230), CoinList.ElementAt(number));

@@ -38,6 +38,7 @@ public class DetectCoinCollision : MonoBehaviour
             ScoreCounter.GetComponent<ScoreCounter>().ScoreUp(200);
             Destroy(this.gameObject);
             GameObject ParticleEffect = Instantiate(Resources.Load("Buff3"), new Vector3(pos.x, pos.y, 0.5f), Quaternion.identity) as GameObject;
+            //GameObject ScoreUp = Instantiate(Resources.Load("ScoreUp200"), new Vector3(pos.x, pos.y - 1.5f, 1f), Quaternion.identity) as GameObject;
         }
     }
 
