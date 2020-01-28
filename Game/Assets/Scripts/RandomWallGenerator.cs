@@ -125,13 +125,21 @@ public class RandomWallGenerator : MonoBehaviour
 
     IEnumerator InitiateGame()
     {
-        yield return new WaitForSeconds(1.7f);
+        yield return new WaitForSeconds(1.5f);
+        Countdown.GetComponent<TextMesh>().color = new Color(1f, 0.89f, 0.11f, 0f);
+        Countdown.GetComponent<CountdownText>().InitiateAppear();
         Countdown.GetComponent<TextMesh>().text = "3";
         yield return new WaitForSeconds(1f);
+        Countdown.GetComponent<TextMesh>().color = new Color(1f, 0.89f, 0.11f, 0f);
+        Countdown.GetComponent<CountdownText>().InitiateAppear();
         Countdown.GetComponent<TextMesh>().text = "2";
         yield return new WaitForSeconds(1f);
+        Countdown.GetComponent<TextMesh>().color = new Color(1f, 0.89f, 0.11f, 0f);
+        Countdown.GetComponent<CountdownText>().InitiateAppear();
         Countdown.GetComponent<TextMesh>().text = "1";
         yield return new WaitForSeconds(1f);
+        Countdown.GetComponent<TextMesh>().color = new Color(1f, 0.89f, 0.11f, 0f);
+        Countdown.GetComponent<CountdownText>().InitiateAppear();
         Countdown.GetComponent<TextMesh>().text = "GO!";
         yield return new WaitForSeconds(1f);
         Destroy(Countdown);

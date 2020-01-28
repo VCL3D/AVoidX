@@ -770,6 +770,7 @@ GameObject:
   - component: {fileID: 235676141}
   - component: {fileID: 235676140}
   - component: {fileID: 235676139}
+  - component: {fileID: 235676142}
   m_Layer: 10
   m_Name: Countdown
   m_TagString: Untagged
@@ -850,6 +851,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+--- !u!114 &235676142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235676138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3221729373e2f4aa3cf31ff5331a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AppearOverTime: 5
 --- !u!1 &265947293
 GameObject:
   m_ObjectHideFlags: 0

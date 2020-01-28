@@ -83,10 +83,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d942b5de72c4544816d739d13feabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 2.5
+  velocity: 1.3
   AppearTime: 0.2
-  DisappearPoint: 0.75
-  DisappearTime: 0.3
+  DisappearPoint: 0.55
+  DisappearTime: 0.6
 --- !u!102 &5126360195282714456
 TextMesh:
   serializedVersion: 3
@@ -108,7 +108,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 0b137f8448b6c5145bd5c1d9d1b0e10d, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 59135
+    rgba: 35583
 --- !u!114 &848193821142885951
 MonoBehaviour:
   m_ObjectHideFlags: 0

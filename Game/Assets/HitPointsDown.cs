@@ -38,7 +38,7 @@ public class HitPointsDown : MonoBehaviour
         }
         alpha = Mathf.Min(alpha, 1f);
         alpha = Mathf.Max(alpha, 0f);
-        this.GetComponent<TextMesh>().color = new Color(0f, 0f, 0f, alpha);
+        this.GetComponent<TextMesh>().color = new Color(1f, 0.9f, 0f, alpha);
         transform.Translate(0f, velocity * Time.deltaTime, 0f);
         velocity -= deceleration * Time.deltaTime;
     }
