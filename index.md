@@ -1,13 +1,13 @@
 <p>
-  |<img src="./Assets/Images/sample1.png" width="100%">|<img src="./Assets/Images/sample2.png" width="100%">|
-  |<img src="./Assets/Images/sample4.png" width="100%">|<img src="./Assets/Images/sample3.png" width="100%">|
+  |<img src="./assets/images/sample1.png" width="100%">|<img src="./assets/images/sample2.png" width="100%">|
+  |<img src="./assets/images/sample4.png" width="100%">|<img src="./assets/images/sample3.png" width="100%">|
 </p>
 
 # Overview
 __AVoidX__ is an Augmented Visuality singleplayer obstacle avoidance game. Players try to avoid collisions with incoming carved walls by moving their actual bodies inside a capturing space perimetrically covered by four sensors, generating a real-time 3d reconstruction of their physical model. Players' aim is to reach the highest possible score as they earn points by successfully avoiding the walls and gathering virtual coins by striking appropriate poses.
 
 <p>
-  <img src="./Assets/Images/AVoidX_2.png" width="100%">
+  <img src="./assets/images/AVoidX_2.png" width="100%">
 </p>
 
 ## Description
