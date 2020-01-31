@@ -1,10 +1,14 @@
 <p>
   <img src="./assets/images/sample1.png" width="20%">
+</p>
+<p>
   <img src="./assets/images/sample2.png" width="20%">
 </p>
 
 <p>
   <img src="./assets/images/sample4.png" width="20%">
+</p>
+<p>
   <img src="./assets/images/sample3.png" width="20%">
 </p>
 
