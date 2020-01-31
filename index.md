@@ -1,15 +1,11 @@
 <p>
-  <img src="./Assets/Images/sample1.png" width="20%">
-</p>
-<p>
-  <img src="./Assets/Images/sample2.png" width="20%">
+  <img src="./Assets/Images/sample1.gif" width="20%">
+  <img src="./Assets/Images/sample2.gif" width="20%">
 </p>
 
 <p>
-  <img src="./Assets/Images/sample4.png" width="20%">
-</p>
-<p>
-  <img src="./Assets/Images/sample3.png" width="20%">
+  <img src="./Assets/Images/sample4.gif" width="20%">
+  <img src="./Assets/Images/sample3.gif" width="20%">
 </p>
 
 # Overview
