@@ -4,7 +4,7 @@ show_downloads: true
 theme: jekyll-theme-slate
 
 github:
-  repository_url: https://vcl3d.github.io/AVoidX/
-  zip_url: https://youtu.be/jt9EFqwH3Zg
+  repository_url: https://youtu.be/jt9EFqwH3Zg
+  zip_url: https://vcl3d.github.io/AVoidX/
   owner_url: https://vcl3d.github.io
   owner_name: VCL3D
