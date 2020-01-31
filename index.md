@@ -28,7 +28,7 @@ The system used to evaluate the player's in-game progress is collision based. Fo
 In order to grant user better control over the game, there are two different cameras designed to capture and display the game events from different aspects at the same time. Except from the main camera, there is also an orthographic camera whose capture is displayed on the top right corner of the game screen, used to provide player with more information about his relative position over the objects moving towards him. In that direction, motion control is added to the game's main camera, forcing it to smoothly change into a behind-the-player view as the walls gradually come closer to him, contributing to maximum game control.
 
 <p>
-  <img src="./Assets/Images/sample5.png" width="100%">
+  <img src="./Assets/Images/sample5.gif" width="100%">
 </p>
 
 ### Easy Wall and Coins Collection Modification
