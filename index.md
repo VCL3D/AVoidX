@@ -20,7 +20,8 @@ __AVoidX__ is an Augmented Visuality singleplayer obstacle avoidance game. Playe
 ## Poster
 
 <p>
-  <img src="./assets/images/poster.jpg" width="100%">
+  <!--<img src="./assets/images/poster.jpg" width="100%">-->
+  <img src="./assets/images/poster.webp" width="100%">
 </p>
 
 ## Description
